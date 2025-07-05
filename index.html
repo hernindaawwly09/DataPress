@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataPress by Ninda & Alip</title>
+    <title>DataPress</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.1.1/compressor.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <style>
@@ -223,12 +223,173 @@
         .compression-options.active {
             display: block;
         }
+        .usage-guide {
+            background-color: #FFFFFF;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
+        }
+        .usage-guide h2 {
+            color: #333333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .usage-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background-color: #F8F9FA;
+            border-radius: 8px;
+            border-left: 4px solid #A0C4FF;
+        }
+        .step-number {
+            background-color: #A0C4FF;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .step-content h4 {
+            margin: 0 0 8px 0;
+            color: #333333;
+        }
+        .step-content p {
+            margin: 0;
+            color: #666666;
+            line-height: 1.5;
+        }
+        .tips {
+            background-color: #E8F0FE;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #FFB5A7;
+        }
+        .tips h4 {
+            margin: 0 0 10px 0;
+            color: #333333;
+        }
+        .tips ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #666666;
+        }
+        .tips li {
+            margin-bottom: 5px;
+        }
+        .toggle-guide {
+            background-color: #F1F3F5;
+            color: #333333;
+            border: 2px solid #A0C4FF;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .toggle-guide:hover {
+            background-color: #A0C4FF;
+            color: white;
+        }
+        .usage-guide.hidden {
+            display: none;
+        }
+        .file-details {
+            background-color: #F8F9FA;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .file-details p {
+            margin: 5px 0;
+            color: #666666;
+        }
+        .file-details span {
+            font-weight: bold;
+            color: #333333;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>DataPress by Ninda & Alip</h1>
+        <h1>DataPress</h1>
         
+        <button class="toggle-guide" onclick="toggleGuide()">
+            📖 Show Guide
+        </button>
+
+        <div class="usage-guide" id="usageGuide">
+            <h2>Cara Menggunakan DataPress</h2>
+            <div class="usage-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Pilih Jenis File</h4>
+                        <p>Pilih jenis file yang ingin dikompresi: Gambar atau PDF. Opsi kompresi akan berubah sesuai pilihan Anda.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Upload File Anda</h4>
+                        <p>Klik area upload atau seret dan lepas file Anda. Format yang didukung: Gambar (JPG, PNG, GIF, dll) dan file PDF.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Atur Pengaturan Kompresi</h4>
+                        <p>Untuk gambar: Gunakan slider untuk mengatur kualitas (0-100%). Untuk PDF: Pilih tingkat kualitas (Tinggi, Sedang, Rendah).</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Kompresi File</h4>
+                        <p>Klik tombol "Compress" untuk memulai proses kompresi. Tunggu hingga proses selesai.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Preview & Download</h4>
+                        <p>Bandingkan file asli dan hasil kompresi di area preview. Klik "Download" untuk menyimpan file yang telah dikompresi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips">
+                <h4>💡 Tips untuk Hasil Terbaik:</h4>
+                <ul>
+                    <li>Untuk gambar: Kualitas tinggi = ukuran file besar, Kualitas rendah = ukuran file kecil</li>
+                    <li>Untuk PDF: Kualitas tinggi mempertahankan keterbacaan, Kualitas rendah mengurangi ukuran file secara signifikan</li>
+                    <li>Selalu preview sebelum download untuk memastikan kualitas sesuai kebutuhan</li>
+                    <li>File asli tidak dimodifikasi - file Anda aman</li>
+                    <li>Waktu pemrosesan tergantung pada ukuran file dan performa perangkat Anda</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="file-type-selector">
             <button class="active" data-type="image">Image</button>
             <button data-type="pdf">PDF</button>
@@ -239,7 +400,7 @@
                 <label class="file-upload-label">
                     <div class="file-upload-icon">📁</div>
                     <div class="file-upload-text">Choose a file or drag it here</div>
-                    <div class="file-upload-hint">Supported formats: Images and PDF</div>
+                    <div class="file-upload-hint" id="fileUploadHint">Supported formats: Images (JPG, PNG, GIF, dll)</div>
                     <input type="file" id="fileInput" accept="image/*,application/pdf">
                 </label>
             </div>
@@ -248,6 +409,7 @@
                 <p>File Name: <span id="fileName"></span></p>
                 <p>File Size: <span id="fileSize"></span></p>
                 <p>File Type: <span id="fileType"></span></p>
+                <p>Resolution: <span id="fileResolution"></span></p>
             </div>
 
             <div class="compression-options" id="imageOptions">
@@ -275,10 +437,18 @@
         <div class="preview">
             <div>
                 <h3>Original File</h3>
+                <div class="file-details">
+                    <p>Size: <span id="originalSize">-</span></p>
+                    <p>Resolution: <span id="originalResolution">-</span></p>
+                </div>
                 <div id="originalPreview"></div>
             </div>
             <div>
                 <h3>Compressed File</h3>
+                <div class="file-details">
+                    <p>Size: <span id="compressedSize">-</span></p>
+                    <p>Resolution: <span id="compressedResolution">-</span></p>
+                </div>
                 <div id="compressedPreview"></div>
             </div>
         </div>
@@ -309,6 +479,17 @@
         let currentFileType = 'image';
         let compressedFile = null;
 
+        // Update supported formats hint dynamically
+        const fileUploadHint = document.getElementById('fileUploadHint');
+
+        function updateFileUploadHint() {
+            if (currentFileType === 'image') {
+                fileUploadHint.textContent = 'Supported formats: Images (JPG, PNG, GIF, dll)';
+            } else if (currentFileType === 'pdf') {
+                fileUploadHint.textContent = 'Supported formats: PDF';
+            }
+        }
+
         document.querySelectorAll('.file-type-selector button').forEach(button => {
             button.addEventListener('click', function() {
                 document.querySelectorAll('.file-type-selector button').forEach(btn => btn.classList.remove('active'));
@@ -327,8 +508,12 @@
                         pdfOptions.classList.add('active');
                         break;
                 }
+                updateFileUploadHint();
             });
         });
+
+        // Initial call
+        updateFileUploadHint();
 
         function formatFileSize(bytes) {
             if (bytes === 0) return '0 Bytes';
@@ -348,15 +533,30 @@
                 fileInfo.style.display = 'block';
                 compressBtn.disabled = false;
 
+                // Update original file details
+                document.getElementById('originalSize').textContent = formatFileSize(file.size);
+
+                // Preview file and get resolution
                 if (file.type.startsWith('image/')) {
                     const reader = new FileReader();
                     reader.onload = function(event) {
-                        originalPreview.innerHTML = `<img src="${event.target.result}" alt="Original Preview">`;
+                        const img = new Image();
+                        img.onload = function() {
+                            const resolution = `${this.width} x ${this.height} px`;
+                            document.getElementById('fileResolution').textContent = resolution;
+                            document.getElementById('originalResolution').textContent = resolution;
+                            originalPreview.innerHTML = `<img src="${event.target.result}" alt="Original Preview">`;
+                        };
+                        img.src = event.target.result;
                     };
                     reader.readAsDataURL(file);
                 } else if (file.type === 'application/pdf') {
+                    document.getElementById('fileResolution').textContent = 'PDF Document';
+                    document.getElementById('originalResolution').textContent = 'PDF Document';
                     originalPreview.innerHTML = `<embed src="${URL.createObjectURL(file)}" type="application/pdf" width="100%" height="300px">`;
                 } else {
+                    document.getElementById('fileResolution').textContent = 'N/A';
+                    document.getElementById('originalResolution').textContent = 'N/A';
                     originalPreview.innerHTML = `<p>Preview not available for this file type</p>`;
                 }
             }
@@ -370,10 +570,21 @@
             if (!currentFile) return;
 
             if (currentFileType === 'image') {
+                // Image compression
                 new Compressor(currentFile, {
                     quality: qualitySlider.value / 100,
                     success(result) {
                         compressedFile = result;
+                        document.getElementById('compressedSize').textContent = formatFileSize(result.size);
+                        
+                        // Get compressed image resolution
+                        const img = new Image();
+                        img.onload = function() {
+                            const resolution = `${this.width} x ${this.height} px`;
+                            document.getElementById('compressedResolution').textContent = resolution;
+                        };
+                        img.src = URL.createObjectURL(result);
+                        
                         compressedPreview.innerHTML = `<img src="${URL.createObjectURL(result)}" alt="Compressed Preview">`;
                         downloadBtn.disabled = false;
                     },
@@ -383,6 +594,7 @@
                     },
                 });
             } else if (currentFileType === 'pdf') {
+                // PDF compression
                 try {
                     const pdfBytes = await currentFile.arrayBuffer();
                     const pdfDoc = await PDFLib.PDFDocument.load(pdfBytes);
@@ -394,6 +606,8 @@
                     });
                     
                     compressedFile = new Blob([compressedPdfBytes], { type: 'application/pdf' });
+                    document.getElementById('compressedSize').textContent = formatFileSize(compressedFile.size);
+                    document.getElementById('compressedResolution').textContent = 'PDF Document';
                     compressedPreview.innerHTML = `<embed src="${URL.createObjectURL(compressedFile)}" type="application/pdf" width="100%" height="300px">`;
                     downloadBtn.disabled = false;
                 } catch (error) {
@@ -401,10 +615,13 @@
                     alert('Error compressing PDF');
                 }
             } else {
+                // Other file types - simple compression
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     const compressed = new Blob([event.target.result], { type: currentFile.type });
                     compressedFile = compressed;
+                    document.getElementById('compressedSize').textContent = formatFileSize(compressed.size);
+                    document.getElementById('compressedResolution').textContent = 'N/A';
                     compressedPreview.innerHTML = `<p>File compressed</p>`;
                     downloadBtn.disabled = false;
                 };
@@ -471,6 +688,17 @@
                 fileUploadLabel.style.borderColor = '#A0C4FF';
                 fileUploadLabel.querySelector('.file-upload-text').textContent = 'Choose a file or drag it here';
             }
+        });
+
+        // Add toggle guide functionality
+        function toggleGuide() {
+            const guide = document.getElementById('usageGuide');
+            guide.classList.toggle('hidden');
+        }
+
+        // Initially hide the guide
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('usageGuide').classList.add('hidden');
         });
     </script>
 </body>
